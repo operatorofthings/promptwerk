@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Aus deiner Idee wird ein präziser Auftrag für deinen KI-Agenten. Kostenlos, ohne Anmeldung.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; object-src 'none'">
+  <meta name="theme-color" content="#11161b"><title>Promptwerk — Bessere Aufträge. Bessere Ergebnisse.</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/" aria-label="Promptwerk Startseite"><span class="brandmark">p<span>→</span></span>promptwerk<span class="brand-dot">.</span></a><span class="top-note">OFFENE WERKSTATT <span class="tag">BETA</span></span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">VON DER IDEE ZUM AUFTRAG</p><h1>Mach mehr aus<br>deinem <em>Prompt.</em></h1></div><p class="intro-copy">Du weißt, was du erreichen willst.<br>Promptwerk hilft dir, es deinem<br>KI-Agenten klar zu sagen.</p></section>
+    <div class="workspace">
+      <section class="panel input-panel" aria-labelledby="input-title">
+        <div class="panel-heading"><h2 id="input-title"><span class="step">01</span> Deine Idee</h2><span class="meta">ROHMATERIAL</span></div>
+        <form id="refine-form">
+          <label class="sr-only" for="prompt">Dein ursprünglicher Auftrag</label>
+          <textarea id="prompt" name="prompt" minlength="10" maxlength="5000" placeholder="Was soll dein Agent für dich tun? Beschreibe dein Ziel, den Kontext und was dir wichtig ist." required></textarea>
+          <div class="input-foot"><button id="example" class="text-button" type="button">↗ Beispiel einsetzen</button><span id="counter" class="counter">0 / 5.000 Bytes</span></div>
+          <div class="options"><div><label for="agent">Für welchen Agenten?</label><select id="agent"><option value="general">Allgemeiner KI-Agent</option><option value="coding">Coding-Agent</option><option value="research">Recherche-Agent</option><option value="writing">Schreibassistent</option></select></div><div><label for="style">Wie ausführlich?</label><select id="style"><option value="compact">Kompakt</option><option value="balanced" selected>Ausgewogen</option><option value="detailed">Ausführlich</option></select></div></div>
+          <button class="primary" id="submit" type="submit"><span id="submit-label">Prompt verfeinern</span><span aria-hidden="true">↗</span></button>
+          <p class="input-note">Ohne Anmeldung. Bitte keine Passwörter oder vertraulichen Daten eingeben.</p>
+        </form>
+      </section>
+      <section class="panel output-panel" aria-labelledby="output-title">
+        <div class="panel-heading"><h2 id="output-title"><span class="step">02</span> Dein Auftrag</h2><button id="copy" class="copy-button" type="button" disabled>Kopieren <span aria-hidden="true">↗</span></button></div>
+        <div id="empty" class="empty"><div class="empty-glyph" aria-hidden="true">[ <span>↗</span> ]</div><h3>Eine klare Richtung.<br>Ein besserer Start.</h3><p>Hier entsteht dein präziser Auftrag —<br>bereit für deinen KI-Agenten.</p><div class="output-ingredients"><span>Ziel</span><span>Kontext</span><span>Ergebnis</span></div></div>
+        <div id="loading" class="loading" hidden><div class="loader" aria-hidden="true"></div><h3>Dein Auftrag nimmt Form an.</h3><p>Ziel schärfen. Lücken erkennen. Klar formulieren.</p></div>
+        <div id="result" hidden><label class="sr-only" for="refined">Verfeinerter Prompt, bearbeitbar</label><textarea id="refined" spellcheck="false"></textarea><div id="details"><div id="changes-block"><h3>Was klarer geworden ist</h3><ul id="changes"></ul></div><div id="questions-block" hidden><h3>Das solltest du noch ergänzen</h3><ul id="questions"></ul></div></div></div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+    <div class="bottom-line"><p><span class="small-plus">+</span> Gute Prompts machen Erwartungen überprüfbar.</p><p>Deine Inhalte werden von Promptwerk nicht gespeichert.</p></div>
+  </main>
+  <footer><span>Mit offenen Modellen gebaut. Für klare Gedanken.</span><nav aria-label="Weitere Informationen"><button class="text-button" id="limits-button">Nutzungslimits</button><button class="text-button" id="privacy-button">Datenschutz</button><a href="https://github.com/operatorofthings/promptwerk" target="_blank" rel="noopener noreferrer">Quellcode ↗</a></nav></footer>
+  <dialog id="info-dialog"><div class="dialog-heading"><h2 id="dialog-title"></h2><button id="close-dialog" aria-label="Dialog schließen">✕</button></div><div id="dialog-content"></div></dialog>
+</body>
+</html>
